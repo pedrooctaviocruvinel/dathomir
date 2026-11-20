@@ -21,4 +21,7 @@
   <Folder Name="/5 - Cross Cutting/">
     <Project Path="src/Dathomir.Backoffice.CrossCutting/Dathomir.Backoffice.CrossCutting.csproj" Id="dc4e5107-fcdf-4471-91dc-941f51e524df" />
   </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 </Solution>

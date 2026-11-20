@@ -4,16 +4,21 @@
 		<TargetFramework>net11.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>d4a5d890-4bc7-49e2-9a5a-1de4fbcf2d3d</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+		<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="11.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Dathomir.Backoffice.Application\Dathomir.Backoffice.Application.csproj" />
-	  <ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
-	  <ProjectReference Include="..\Dathomir.Backoffice.Infrastructure.DependencyInjection\Dathomir.Backoffice.Infrastructure.DependencyInjection.csproj" />
+		<ProjectReference Include="..\Dathomir.Backoffice.Application\Dathomir.Backoffice.Application.csproj" />
+		<ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
+		<ProjectReference Include="..\Dathomir.Backoffice.Infrastructure.DependencyInjection\Dathomir.Backoffice.Infrastructure.DependencyInjection.csproj" />
 	</ItemGroup>
 
 </Project>
