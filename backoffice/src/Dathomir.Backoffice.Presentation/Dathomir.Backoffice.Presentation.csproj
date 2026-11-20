@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net11.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="11.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Dathomir.Backoffice.Application\Dathomir.Backoffice.Application.csproj" />
+	  <ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
+	  <ProjectReference Include="..\Dathomir.Backoffice.Infrastructure.DependencyInjection\Dathomir.Backoffice.Infrastructure.DependencyInjection.csproj" />
+	</ItemGroup>
+
+</Project>

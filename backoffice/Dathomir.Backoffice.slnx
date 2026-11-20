@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/1 - Presentation/">
+    <Project Path="src/Dathomir.Backoffice.Presentation/Dathomir.Backoffice.Presentation.csproj" Id="824ded16-b1c0-4dd6-9286-5190b4f11b29" />
+  </Folder>
+  <Folder Name="/2 - Application/">
+    <Project Path="src/Dathomir.Backoffice.Application/Dathomir.Backoffice.Application.csproj" Id="ed027542-209f-4b50-a2d6-d3660a6c5218" />
+  </Folder>
+  <Folder Name="/3 - Domain/">
+    <Project Path="src/Dathomir.Backoffice.Domain/Dathomir.Backoffice.Domain.csproj" Id="767a91b9-4b27-4db3-87b4-6b950735ac1b" />
+  </Folder>
+  <Folder Name="/4 - Infrastructure/" />
+  <Folder Name="/4 - Infrastructure/4.1 - Data/">
+    <Project Path="src/Dathomir.Backoffice.Infrastructure.Data/Dathomir.Backoffice.Infrastructure.Data.csproj" Id="e3362e49-fad1-44b8-a37b-231eb611426c" />
+  </Folder>
+  <Folder Name="/4 - Infrastructure/4.2 - Provider/">
+    <Project Path="src/Dathomir.Backoffice.Infrastructure.Provider/Dathomir.Backoffice.Infrastructure.Provider.csproj" Id="fbcd9b21-726a-42fe-abf6-1e39a7690aa7" />
+  </Folder>
+  <Folder Name="/4 - Infrastructure/4.3 - Dependency Injection/">
+    <Project Path="src/Dathomir.Backoffice.Infrastructure.DependencyInjection/Dathomir.Backoffice.Infrastructure.DependencyInjection.csproj" Id="01fe4e10-8d6c-4e36-8930-4a07633a87b5" />
+  </Folder>
+  <Folder Name="/5 - Cross Cutting/">
+    <Project Path="src/Dathomir.Backoffice.CrossCutting/Dathomir.Backoffice.CrossCutting.csproj" Id="dc4e5107-fcdf-4471-91dc-941f51e524df" />
+  </Folder>
+</Solution>
