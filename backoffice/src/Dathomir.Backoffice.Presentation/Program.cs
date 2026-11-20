@@ -1,11 +1,13 @@
+using Dathomir.Backoffice.Presentation.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+builder.Services.AddSwagger(builder.Configuration);
 
 var app = builder.Build();
 
-app.MapOpenApi();
+app.UseSwaggerConfiguration();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
