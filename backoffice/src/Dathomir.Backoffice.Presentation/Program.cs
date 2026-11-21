@@ -1,5 +1,6 @@
 using Dathomir.Backoffice.Infrastructure.DependencyInjection;
 using Dathomir.Backoffice.Presentation.Configurations;
+using Dathomir.Backoffice.Presentation.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,5 +14,6 @@ app.UseSwaggerConfiguration();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.ApplyMigrations();
 
 app.Run();
