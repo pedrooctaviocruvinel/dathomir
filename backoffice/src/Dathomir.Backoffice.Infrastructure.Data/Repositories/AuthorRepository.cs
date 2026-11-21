@@ -6,6 +6,12 @@ namespace Dathomir.Backoffice.Infrastructure.Data.Repositories;
 
 public class AuthorRepository(ApplicationDataContext applicationDataContext) : IAuthorRepository
 {
+    public IQueryable<Author> AsQueryable(string name) =>
+        applicationDataContext.Authors
+            .AsNoTracking()
+            .Where(a =>
+                (name == null || a.Name.Contains(name)));
+
     public async Task<Author> GetByIdAsync(Guid id, CancellationToken cancellationToken) =>
         await applicationDataContext.Authors
             .AsNoTracking()

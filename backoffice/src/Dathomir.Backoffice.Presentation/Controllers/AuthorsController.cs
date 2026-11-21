@@ -1,4 +1,5 @@
 ﻿using Dathomir.Backoffice.Application.Authors.GetAuthorDetailsById;
+using Dathomir.Backoffice.Application.Authors.ListAuthors;
 using Dathomir.Backoffice.Application.Authors.RegisterAuthor;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,14 @@ namespace Dathomir.Backoffice.Presentation.Controllers;
 [ApiController]
 public class AuthorsController(IMediator mediator) : ControllerBase
 {
+    [HttpGet]
+    public async Task<IActionResult> List([FromQuery] ListAuthorsQueryRequest queryRequest)
+    {
+        var listAuthorsResult = await mediator.Send(queryRequest);
+
+        return Ok(listAuthorsResult);
+    }
+
     [HttpGet("{Id}")]
     public async Task<IActionResult> GetDetailsById([FromRoute] GetAuthorDetailsByIdQueryRequest queryRequest)
     {
