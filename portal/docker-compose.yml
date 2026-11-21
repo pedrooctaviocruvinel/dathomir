@@ -1,0 +1,8 @@
+services:
+  portal_api:
+    container_name: portal-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
