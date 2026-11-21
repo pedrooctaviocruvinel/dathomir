@@ -8,6 +8,7 @@
 	<ItemGroup>
 		<PackageReference Include="FluentValidation" Version="12.2.0" />
 		<PackageReference Include="MediatR" Version="15.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="11.0.0" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="11.0.0" />
 	</ItemGroup>
 

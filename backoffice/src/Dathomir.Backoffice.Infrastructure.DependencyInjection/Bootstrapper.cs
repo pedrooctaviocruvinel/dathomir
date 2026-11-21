@@ -9,6 +9,7 @@ public static class Bootstrapper
     public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDataContext(configuration);
+        services.AddEvents(configuration);
         services.AddFluentValidation();
         services.AddMediatR();
     }

@@ -6,6 +6,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Confluent.Kafka" Version="2.16.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Dathomir.Backoffice.Application\Dathomir.Backoffice.Application.csproj" />
 		<ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
 		<ProjectReference Include="..\Dathomir.Backoffice.Domain\Dathomir.Backoffice.Domain.csproj" />
 	</ItemGroup>
