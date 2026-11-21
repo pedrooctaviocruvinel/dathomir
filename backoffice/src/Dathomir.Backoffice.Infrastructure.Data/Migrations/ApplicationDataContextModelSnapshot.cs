@@ -16,7 +16,7 @@ partial class ApplicationDataContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261121003452_InitialMigration";
+    public override string LastMigrationId => "20261121013903_Add_DateOfBirthAndDateOfDeath_Author";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -33,6 +33,14 @@ partial class ApplicationDataContextModelSnapshot : ModelSnapshot
                     .ValueGeneratedOnAdd()
                     .HasColumnType("uuid")
                     .HasColumnName("id");
+
+                b.Property<DateOnly>("DateOfBirth")
+                    .HasColumnType("date")
+                    .HasColumnName("date_of_birth");
+
+                b.Property<DateOnly?>("DateOfDeath")
+                    .HasColumnType("date")
+                    .HasColumnName("date_of_death");
 
                 b.Property<string>("Name")
                     .IsRequired()

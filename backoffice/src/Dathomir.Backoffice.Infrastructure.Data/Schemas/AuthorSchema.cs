@@ -25,6 +25,15 @@ internal static class AuthorSchema
                 .HasColumnName("name")
                 .HasColumnType("varchar(100)")
                 .IsRequired();
+
+            etb.Property(a => a.DateOfBirth)
+                .HasColumnName("date_of_birth")
+                .HasColumnType("date")
+                .IsRequired();
+
+            etb.Property(a => a.DateOfDeath)
+                .HasColumnName("date_of_death")
+                .HasColumnType("date");
         });
     }
 }

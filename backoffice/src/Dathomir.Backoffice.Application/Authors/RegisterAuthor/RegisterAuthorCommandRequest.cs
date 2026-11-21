@@ -7,7 +7,9 @@ namespace Dathomir.Backoffice.Application.Authors.RegisterAuthor;
 public class RegisterAuthorCommandRequest : IRequest<Notification<RegisterAuthorCommandResult>>
 {
     public string Name { get; set; }
+    public DateOnly DateOfBirth { get; set; }
+    public DateOnly? DateOfDeath { get; set; }
 
     public Author Map() =>
-        new(Name);
+        new(Name, DateOfBirth, DateOfDeath);
 }
