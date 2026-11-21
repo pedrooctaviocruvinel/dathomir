@@ -2,7 +2,7 @@
 
 namespace Dathomir.Backoffice.Application.Providers.Events.AuthorRegisteredEvent;
 
-public record AuthorRegisteredEventDTO(Author author)
+public class AuthorRegisteredEventDTO(Author author)
 {
     public Guid Id { get; private set; } = author.Id;
     public string Name { get; private set; } = author.Name;
