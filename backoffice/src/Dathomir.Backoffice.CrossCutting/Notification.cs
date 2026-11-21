@@ -1,4 +1,6 @@
 ﻿using Dathomir.Backoffice.CrossCutting.Enums;
+using FluentValidation.Results;
+using System.Net;
 
 namespace Dathomir.Backoffice.CrossCutting;
 
@@ -54,6 +56,9 @@ public class Notification<TEntity> where TEntity : class
 
     public static Notification<TEntity> CreateError(ErrorCode errorCode, IEnumerable<string> errors) =>
         new(errorCode, [.. errors]);
+
+    public static Notification<TEntity> CreateError(List<ValidationFailure> validationFailures) =>
+        new(ErrorCode.EntityValidationError, [.. validationFailures.Select(vf => vf.ErrorMessage)]);
 
     public static Notification<TEntity> CreateSuccess(TEntity data) =>
         new(data);

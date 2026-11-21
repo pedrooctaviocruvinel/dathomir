@@ -13,6 +13,9 @@ public class AuthorsController(IMediator mediator) : ControllerBase
     {
         var registerAuthorResult = await mediator.Send(commandRequest);
 
+        if (!registerAuthorResult.Success)
+            return BadRequest(registerAuthorResult);
+
         return CreatedAtAction(nameof(GetById), new { id = registerAuthorResult.Data.Id }, registerAuthorResult);
     }
 

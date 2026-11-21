@@ -6,6 +6,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="12.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
 	</ItemGroup>
 
