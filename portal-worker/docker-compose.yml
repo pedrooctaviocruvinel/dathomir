@@ -1,0 +1,4 @@
+services:
+  portal_consumer:
+    container_name: portal-consumer
+    build: .
