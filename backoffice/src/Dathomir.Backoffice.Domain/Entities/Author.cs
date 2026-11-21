@@ -1,7 +1,7 @@
 ﻿namespace Dathomir.Backoffice.Domain.Entities;
 
-public class Author
+public class Author(string name)
 {
-    public Guid Id { get; private set; }
-    public string Name { get; private set; } = null;
+    public Guid Id { get; private set; } = Guid.NewGuid();
+    public string Name { get; private set; } = name;
 }

@@ -6,5 +6,5 @@ public interface IUnitOfWork : IDisposable
 
     Task BeginTransaction();
     Task Commit();
-    Task SaveChanges();
+    Task SaveChanges(CancellationToken cancellationToken);
 }

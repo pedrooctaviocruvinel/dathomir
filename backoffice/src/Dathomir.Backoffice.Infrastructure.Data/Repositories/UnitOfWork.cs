@@ -23,8 +23,8 @@ public class UnitOfWork(ApplicationDataContext applicationDataContext) : IUnitOf
         }
     }
 
-    public async Task SaveChanges() =>
-        await applicationDataContext.SaveChangesAsync();
+    public async Task SaveChanges(CancellationToken cancellationToken) =>
+        await applicationDataContext.SaveChangesAsync(cancellationToken);
 
     public void Dispose() =>
         applicationDataContext.Dispose();

@@ -6,6 +6,9 @@ namespace Dathomir.Backoffice.Infrastructure.DependencyInjection;
 
 public static class Bootstrapper
 {
-    public static void AddDependencies(this IServiceCollection services, IConfiguration configuration) =>
+    public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
+    {
         services.AddDataContext(configuration);
+        services.AddMediatR();
+    }
 }

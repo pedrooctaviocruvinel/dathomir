@@ -6,6 +6,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="MediatR" Version="15.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
 		<ProjectReference Include="..\Dathomir.Backoffice.Domain\Dathomir.Backoffice.Domain.csproj" />
 	</ItemGroup>
