@@ -10,7 +10,7 @@ internal static class SwaggerConfiguration
     public static void UseSwaggerConfiguration(this IApplicationBuilder app)
     {
         app.UseSwagger();
-        app.UseSwaggerUI(suo => suo.SwaggerEndpoint("/swagger/v1/swagger.json", "Backoffice-chan"));
+        app.UseSwaggerUI(suo => suo.SwaggerEndpoint("/swagger/v1/swagger.json", "backoffice"));
     }
 
     private static OpenApiInfo BuildOpenApiInfo(IConfiguration configuration) =>
