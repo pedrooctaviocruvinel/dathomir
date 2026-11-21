@@ -3,6 +3,7 @@
 public interface IUnitOfWork : IDisposable
 {
     IAuthorRepository Authors { get; }
+    IMangaRepository Mangas { get; }
 
     Task BeginTransaction();
     Task Commit();

@@ -16,7 +16,7 @@ partial class ApplicationDataContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261121013903_Add_DateOfBirthAndDateOfDeath_Author";
+    public override string LastMigrationId => "20261121030601_Create_Manga";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -53,6 +53,45 @@ partial class ApplicationDataContextModelSnapshot : ModelSnapshot
                     .IsUnique();
 
                 b.ToTable("authors");
+            });
+
+        modelBuilder.Entity("Dathomir.Backoffice.Domain.Entities.Manga", b =>
+            {
+                b.Property<Guid>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("uuid")
+                    .HasColumnName("id");
+
+                b.Property<Guid>("AuthorId")
+                    .HasColumnType("uuid")
+                    .HasColumnName("author_id");
+
+                b.Property<string>("Title")
+                    .IsRequired()
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("title");
+
+                b.HasKey("Id");
+
+                b.HasIndex("AuthorId");
+
+                b.ToTable("mangas");
+            });
+
+        modelBuilder.Entity("Dathomir.Backoffice.Domain.Entities.Manga", b =>
+            {
+                b.HasOne("Dathomir.Backoffice.Domain.Entities.Author", "Author")
+                    .WithMany("Mangas")
+                    .HasForeignKey("AuthorId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("Author");
+            });
+
+        modelBuilder.Entity("Dathomir.Backoffice.Domain.Entities.Author", b =>
+            {
+                b.Navigation("Mangas");
             });
 #pragma warning restore 612, 618
     }

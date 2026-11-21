@@ -16,6 +16,7 @@ internal static class DataContextConfiguration
             ndcob => ndcob.MigrationsAssembly("Dathomir.Backoffice.Infrastructure.Data")));
 
         services.AddTransient<IAuthorRepository, AuthorRepository>();
+        services.AddTransient<IMangaRepository, MangaRepository>();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
     }

@@ -17,6 +17,11 @@ public class AuthorRepository(ApplicationDataContext applicationDataContext) : I
             .AsNoTracking()
             .FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 
+    public async Task<bool> Any(Guid id, CancellationToken cancellationToken) =>
+        await applicationDataContext.Authors
+            .AsNoTracking()
+            .AnyAsync(a => a.Id == id, cancellationToken);
+
     public async Task AddAsync(Author author, CancellationToken cancellationToken) =>
         await applicationDataContext.Authors.AddAsync(author, cancellationToken);
 }

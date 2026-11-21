@@ -7,6 +7,9 @@ namespace Dathomir.Backoffice.Infrastructure.DependencyInjection.Dependencies;
 
 internal static class FluentValidationConfiguration
 {
-    public static void AddFluentValidation(this IServiceCollection services) =>
+    public static void AddFluentValidation(this IServiceCollection services)
+    {
         services.AddTransient<IValidator<Author>, AuthorValidator>();
+        services.AddTransient<IValidator<Manga>, MangaValidator>();
+    }
 }

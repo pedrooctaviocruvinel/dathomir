@@ -6,5 +6,6 @@ public interface IAuthorRepository
 {
     IQueryable<Author> AsQueryable(string name);
     Task<Author> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+    Task<bool> Any(Guid id, CancellationToken cancellationToken);
     Task AddAsync(Author author, CancellationToken cancellationToken);
 }

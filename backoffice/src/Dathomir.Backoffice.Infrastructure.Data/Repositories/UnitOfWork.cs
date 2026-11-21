@@ -6,6 +6,7 @@ namespace Dathomir.Backoffice.Infrastructure.Data.Repositories;
 public class UnitOfWork(ApplicationDataContext applicationDataContext) : IUnitOfWork
 {
     public IAuthorRepository Authors { get; } = new AuthorRepository(applicationDataContext);
+    public IMangaRepository Mangas { get; } = new MangaRepository(applicationDataContext);
 
     private IDbContextTransaction _transaction;
 
