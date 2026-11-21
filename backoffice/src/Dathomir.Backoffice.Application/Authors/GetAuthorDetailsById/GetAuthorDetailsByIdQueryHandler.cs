@@ -9,7 +9,7 @@ public class GetAuthorDetailsByIdQueryHandler(IUnitOfWork unitOfWork) : IRequest
 {
     public async Task<Notification<GetAuthorDetailsByIdQueryResult>> Handle(GetAuthorDetailsByIdQueryRequest queryRequest, CancellationToken cancellationToken)
     {
-        var author = await unitOfWork.Authors.GetByIdAsync(queryRequest.Id, cancellationToken);
+        var author = await unitOfWork.Authors.GetByIdAsync(queryRequest.Id, includeMangas: true, cancellationToken);
 
         if (author == null)
             return Notification<GetAuthorDetailsByIdQueryResult>.CreateError(ErrorCode.AuthorDoesntExists);
