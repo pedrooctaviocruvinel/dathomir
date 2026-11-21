@@ -3,12 +3,11 @@
 	<PropertyGroup>
 		<TargetFramework>net11.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
-	  <ProjectReference Include="..\Dathomir.Backoffice.Domain\Dathomir.Backoffice.Domain.csproj" />
+		<ProjectReference Include="..\Dathomir.Backoffice.CrossCutting\Dathomir.Backoffice.CrossCutting.csproj" />
+		<ProjectReference Include="..\Dathomir.Backoffice.Domain\Dathomir.Backoffice.Domain.csproj" />
 	</ItemGroup>
 
 </Project>
