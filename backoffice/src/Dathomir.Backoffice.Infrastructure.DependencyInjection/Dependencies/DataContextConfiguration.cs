@@ -1,4 +1,6 @@
-﻿using Dathomir.Backoffice.Infrastructure.Data;
+﻿using Dathomir.Backoffice.Application.Repositories;
+using Dathomir.Backoffice.Infrastructure.Data;
+using Dathomir.Backoffice.Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,5 +14,9 @@ internal static class DataContextConfiguration
         services.AddDbContext<ApplicationDataContext>(dcob =>
             dcob.UseNpgsql(configuration.GetConnectionString("Postgresql"),
             ndcob => ndcob.MigrationsAssembly("Dathomir.Backoffice.Infrastructure.Data")));
+
+        services.AddTransient<IAuthorRepository, AuthorRepository>();
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }
