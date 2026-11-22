@@ -2,6 +2,7 @@
 #include <cJSON.h>
 
 #include "handlers.h"
+#include "repository.h"
 
 void handle_author(const cJSON *json)
 {
@@ -20,5 +21,5 @@ void handle_author(const cJSON *json)
     snprintf(author.id, sizeof author.id, "%s", id->valuestring);
     snprintf(author.name, sizeof author.name, "%s", name->valuestring);
 
-    printf("[Authors] received: id=%s, name=%s\n", author.id, author.name);
+    insert_author(&author);
 }

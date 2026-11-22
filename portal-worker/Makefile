@@ -1,6 +1,6 @@
 CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c11 -I./include -I/usr/include/cjson
-LDLIBS  = -lrdkafka -lcjson
+CFLAGS  = -Wall -Wextra -std=c11 -I./include -I/usr/include/cjson -I/usr/include/postgresql
+LDLIBS  = -lrdkafka -lcjson -lpq
 
 BINDIR  = bin
 TARGET  = $(BINDIR)/portal-worker

@@ -64,6 +64,34 @@ target_include_directories(portal-worker
     PRIVATE ${CMAKE_BINARY_DIR}/rdkafka-include
 )
 
+include(ExternalProject)
+
+set(LIBPQ_PREFIX ${CMAKE_BINARY_DIR}/libpq)
+file(MAKE_DIRECTORY ${LIBPQ_PREFIX}/include)
+
+ExternalProject_Add(libpq_ext
+    URL https://ftp.postgresql.org/pub/source/v16.16/postgresql-16.16.tar.gz
+    URL_HASH SHA256=3e930f3366f675ab26e873d16201201f8e9b6d9bc13686e4465380271145ea2d
+    DOWNLOAD_NO_EXTRACT TRUE
+    BUILD_IN_SOURCE TRUE
+    CONFIGURE_COMMAND tar xzf <DOWNLOADED_FILE> --strip-components=1
+              COMMAND ./configure --prefix=${LIBPQ_PREFIX}
+                      --without-readline --without-zlib --without-icu
+    BUILD_COMMAND make -C src/backend generated-headers
+          COMMAND make -C src/interfaces/libpq
+    INSTALL_COMMAND make -C src/interfaces/libpq install
+            COMMAND make -C src/include install
+    BUILD_BYPRODUCTS ${LIBPQ_PREFIX}/lib/libpq.so
+)
+
+add_library(libpq SHARED IMPORTED)
+set_target_properties(libpq PROPERTIES
+    IMPORTED_LOCATION ${LIBPQ_PREFIX}/lib/libpq.so
+    INTERFACE_INCLUDE_DIRECTORIES ${LIBPQ_PREFIX}/include
+)
+add_dependencies(portal-worker libpq_ext)
+
 target_link_libraries(portal-worker
     PRIVATE rdkafka
+    PRIVATE libpq
 )

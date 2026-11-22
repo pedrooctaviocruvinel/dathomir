@@ -17,8 +17,10 @@ services:
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     depends_on:
-      - postgresql
-      - kafka
+      postgresql:
+        condition: service_started
+      kafka:
+        condition: service_healthy
 
   portal_api:
     container_name: portal-api
@@ -32,16 +34,20 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgresuser
       - SPRING_DATASOURCE_PASSWORD=postgrespassword
     depends_on:
-      - postgresql
+      postgresql:
+        condition: service_started
 
-  portal_consumer:
-    container_name: portal-consumer
+  portal_worker:
+    container_name: portal-worker
     build: 
       context: portal-worker/
       dockerfile: Dockerfile
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - POSTGRESQL_CONNECTIONSTRING=host=postgresql port=5432 dbname=portal user=postgresuser password=postgrespassword
     depends_on:
+      postgresql:
+        condition: service_started
       kafka:
         condition: service_healthy
 
@@ -93,7 +99,8 @@ services:
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092
       - DYNAMIC_CONFIG_ENABLED=true
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
 
 volumes:
   postgresql_data:

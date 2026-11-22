@@ -1,7 +1,7 @@
 FROM gcc:14-bookworm AS build
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends librdkafka-dev libcjson-dev \
+    && apt-get install -y --no-install-recommends librdkafka-dev libcjson-dev libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN make
 FROM debian:bookworm-slim
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends librdkafka1 libcjson1 \
+    && apt-get install -y --no-install-recommends librdkafka1 libcjson1 libpq5 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
