@@ -20,6 +20,20 @@ services:
       - postgresql
       - kafka
 
+  portal_api:
+    container_name: portal-api
+    build:
+      context: portal/
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/portal
+      - SPRING_DATASOURCE_USERNAME=postgresuser
+      - SPRING_DATASOURCE_PASSWORD=postgrespassword
+    depends_on:
+      - postgresql
+
   portal_consumer:
     container_name: portal-consumer
     build: 
@@ -37,11 +51,11 @@ services:
     environment:
       POSTGRES_USER: postgresuser
       POSTGRES_PASSWORD: postgrespassword
-      POSTGRES_DB: backoffice
     ports:
       - "5432:5432"
     volumes:
       - postgresql_data:/var/lib/postgresql
+      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
   kafka:
     image: apache/kafka:4.3.2
@@ -73,7 +87,7 @@ services:
     image: kafbat/kafka-ui:d769a08
     container_name: kafka-ui
     ports:
-      - "8081:8080"
+      - "8082:8080"
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092

@@ -1,0 +1,2 @@
+CREATE DATABASE backoffice;
+CREATE DATABASE portal;
