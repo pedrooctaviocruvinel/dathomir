@@ -19,6 +19,14 @@ public class JpaAuthor {
         return new Author(this.id, name);
     }
 
+    public JpaAuthor() {
+    }
+
+    public JpaAuthor(Author author) {
+        id = author.getId();
+        name = author.getName();
+    }
+
     public UUID getId() {
         return id;
     }

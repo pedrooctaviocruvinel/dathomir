@@ -33,18 +33,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/portal
       - SPRING_DATASOURCE_USERNAME=postgresuser
       - SPRING_DATASOURCE_PASSWORD=postgrespassword
-    depends_on:
-      postgresql:
-        condition: service_started
-
-  portal_worker:
-    container_name: portal-worker
-    build: 
-      context: portal-worker/
-      dockerfile: Dockerfile
-    environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-      - POSTGRESQL_CONNECTIONSTRING=host=postgresql port=5432 dbname=portal user=postgresuser password=postgrespassword
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     depends_on:
       postgresql:
         condition: service_started

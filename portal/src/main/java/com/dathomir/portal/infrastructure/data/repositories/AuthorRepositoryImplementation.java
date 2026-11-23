@@ -22,4 +22,9 @@ public class AuthorRepositoryImplementation implements AuthorRepository {
                 .map(JpaAuthor::Map)
                 .toList();
     }
+
+    @Override
+    public void save(Author author) {
+        jpaAuthorRepository.save(new JpaAuthor(author));
+    }
 }
